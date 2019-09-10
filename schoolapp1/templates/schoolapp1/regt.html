@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}
+  Registration - Classroom
+{% endblock %}
+
+{% block content %}
+<center>
+
+  <h3 class = 'display-2'>Registration:</h3>
+  <h1 class='diplay-3'>Classroom</h1>
+
+
+  <div class='col-5 mt-5'>
+
+
+    <form method="post">
+      {% csrf_token %}
+
+<div class='form-group'>
+  <label for="fnameinput">First name</label>
+  <input type="text" class="form-control" id="fnameinput"  placeholder="First name" name='fnamef'>
+</div>
+
+
+<div class='form-group'>
+
+  <label for="lnameinput">Last name</label>
+  <input type="text" class="form-control" id="lnameinput"  placeholder="Last name" name='lnamef'>
+
+</div>
+
+<div class="form-group">
+  <label for="exampleInputEmail1">Email address</label>
+  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@mail.ru" name='emailf'>
+  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+</div>
+
+<div class="form-group">
+  <label for="exampleInputPassword1">Password</label>
+  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name='passwordf'>
+</div>
+<div class="form-group">
+  <label for="exampleInputPassword1">Repeat password</label>
+  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name='reppasswordf'>
+</div>
+
+<div class="form-group form-check">
+  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+  <label class="form-check-label" for="exampleCheck1">I am agree</label>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+{% if reg_infok[3] != reg_info[0] %}
+<center><div class="alert alert-danger col-5" role="alert">
+  Passwords do not match
+</div></center>
+{% endif %}
+</form>
+
+</div>
+
+</center>
+{% endblock %}

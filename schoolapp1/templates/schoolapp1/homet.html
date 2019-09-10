@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+  Classroom - Home
+{% endblock %}
+
+{% block content %}
+  <center><h1 class='display-4'>Welcome to classroom</h1>
+
+
+  <div class='mt-3'>
+    <a class="btn btn-outline-secondary" href="{% url 'regp' %}" role="button">Sign up</a>
+    <a class="btn btn-outline-secondary" href="{% url 'login' %}" role="button">Login</a>
+    
+
+</div>
+
+  </center>
+{% endblock %}

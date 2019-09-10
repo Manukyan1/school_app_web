@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see your profile.</p>
+    {% endif %}
+{% endif %}
+
+<center><div class="mt-5">
+  <h1>Clasroom login:</h1>
+</div></center>
+
+{% if form.errors %}
+<center><div class="alert alert-danger col-5" role="alert">
+  Entered username or password does not exist
+</div></center>
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+
+{% csrf_token %}
+
+<center><div class='mt-5'>
+  <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+</div>
+<div>
+  <td>{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</div>
+
+<div>
+  <input type="submit" value="login" class="btn btn-primary" />
+
+  <input type="hidden" name="next" value="{{ next }}" />
+</div>
+</form>
+
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+</center>
+{% endblock %}

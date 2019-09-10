@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class='display-4'>Welcome to Classroom </h1>
+
+  <br />
+<hr align="left" width="1920" size="4" color="#ff9900" />
+<br />
+
+<div class='ml-5'>
+  <p class='lead'>Your username: <mark>{{ username|title }}</mark></p>
+  <p class='lead'>Your groups: {% for yourgroup in group %} <mark>{{ yourgroup }}</mark> {% endfor %}</p>
+</div>
+
+{% endblock %}
